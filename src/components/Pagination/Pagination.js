@@ -5,23 +5,23 @@ import "./Pagination.scss";
 
 export default function Pagination() {
   const [count, setCount] = useState(0);
-  const [offset, setOffSet] = useState(0);
-
+  const [offset, setOffSet] = useState(5);
+  const [last, setLast] = useState(0);
+  const value = 5;
   const dispatch = useDispatch();
 
-  const handleClickSiguiente = async () => {
-    await setOffSet(offset + 5);
-    await dispatch(getAllPokemons(offset));
-    await setCount(count + 1);
+  const handleClickSiguiente = () => {
+    setOffSet(offset + value);
+    setLast(last + value);
+    dispatch(getAllPokemons(offset));
+    setCount(count + 1);
   };
 
-  const handleClickAnterior = async () => {
-    if (offset > 0) {
-      await setOffSet(offset - 5);
-      await dispatch(getAllPokemons(offset));
-    }
+  const handleClickAnterior = () => {
     if (count > 0) {
-      await setCount(count - 1);
+      setLast(last - value);
+      dispatch(getAllPokemons(last - value));
+      setCount(count - 1);
     }
   };
 

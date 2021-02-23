@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { getAllPokemons } from "./store/Actions/PokemonActions";
@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
+  const [offSet, setOffSet] = useState(0);
 
   useEffect(() => {
-    dispatch(getAllPokemons(0));
+    dispatch(getAllPokemons(offSet));
   }, []);
 
   return (
