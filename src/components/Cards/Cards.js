@@ -1,34 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import Pagination from "../Pagination/Pagination";
 import "./Cards.scss";
 
-export default function Cards({ data }) {
-  const [result, setResults] = useState(data.data.results);
-
+export default function Cards() {
+  const state = useSelector((state) => state.pokemons.pokemon);
   return (
-    <div className="card-container">
-      {result.map((r) => (
-        <div className="card" key={r.name}>
-          <div className="card__image">
-            <img
-              src="https://cdn.pixabay.com/photo/2020/07/21/16/10/pokemon-5426712_960_720.png"
-              alt="Pokemon"
-            />
-          </div>
-          <div>
-            <div className="card__tittle">
-              <h1>{r.name}</h1>
-            </div>
-            <div className="card__text">
-              <p>Fuerza</p>
-              <p>Color</p>
-              <p>Tipo</p>
-            </div>
-            <div className="card__button">
-              <button>Ver Mas</button>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="card-container">
+        {state && state.length > 0
+          ? state.map((result) => (
+              <div className="card" key={result.data.id}>
+                <div className="card__image">
+                  <img src={result.data.sprites.front_default} alt="Pokemon" />
+                </div>
+                <div>
+                  <div className="card__tittle">
+                    <h1>{result.data.name}</h1>
+                  </div>
+                  <div className="card__text">
+                    <p>Altura: {result.data.height}</p>
+                    <p>Peso: {result.data.weight} </p>
+                    <p>Tipo: {result.data.types[0].type.name}</p>
+                  </div>
+                  <div className="card__button">
+                    <button>Ver Mas</button>
+                  </div>
+                </div>
+              </div>
+            ))
+          : "cargando"}
+      </div>
+      <Pagination />
+    </>
   );
 }

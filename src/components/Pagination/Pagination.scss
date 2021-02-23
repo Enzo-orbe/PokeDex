@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 15px;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      margin: 15px;
+      padding: 8px;
+      color: #fff;
+      background-color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: "RocknRoll One", sans-serif;
+
+      &:hover {
+        cursor: pointer;
+        background-color: gainsboro;
+        color: black;
+      }
+    }
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 15px;
+      font-family: "RocknRoll One", sans-serif;
+    }
+  }
+}

@@ -7,16 +7,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.pokemons.pokemon);
 
   useEffect(() => {
-    dispatch(getAllPokemons());
+    dispatch(getAllPokemons(0));
   }, []);
 
   return (
     <div>
       <Navbar />
-      <Cards data={data} />
+      <Cards />
     </div>
   );
 }
