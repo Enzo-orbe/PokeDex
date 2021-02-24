@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonId } from "../../store/Actions/PokemonActions";
+import CarouselImage from "./Carousel";
 import "./Pokemon.scss";
 
 export default function Pokemon() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.pokemons.onePokemon);
-  console.log(data);
 
   useEffect(() => {
     dispatch(getPokemonId(id));
@@ -17,7 +17,7 @@ export default function Pokemon() {
   return (
     <div className="container">
       <div className="container__image">
-        <img src={data.sprites && data.sprites.front_default} alt="Pokemon" />
+        <CarouselImage images={data.sprites && data.sprites} />
       </div>
       <div className="container__text">
         <div className="tittle">
