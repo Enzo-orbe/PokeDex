@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import Cards from "./components/Cards/Cards";
 import Navbar from "./components/Navbar/Navbar";
 import { getAllPokemons } from "./store/Actions/PokemonActions";
-
-import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Pokemon from "./components/Pokemon/Pokemon";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,10 +15,11 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Cards />
-    </div>
+      <Route exact path="/" component={Cards} />
+      <Route exact path="/pokemon/:id" component={Pokemon} />
+    </Router>
   );
 }
 

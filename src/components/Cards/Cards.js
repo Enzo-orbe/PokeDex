@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
+import { Link } from "react-router-dom";
 import "./Cards.scss";
 
 export default function Cards() {
@@ -25,7 +26,9 @@ export default function Cards() {
                   <p>Tipo: {result.data.types[0].type.name}</p>
                 </div>
                 <div className="card__button">
-                  <button>Ver Mas</button>
+                  <button>
+                    <Link to={`/pokemon/${result.data.id}`}>Ver Mas</Link>
+                  </button>
                 </div>
               </div>
             </div>

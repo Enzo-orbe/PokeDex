@@ -1,7 +1,8 @@
-import { GET_POKEMONS } from "../Constants";
+import { GET_POKEMONS, GET_POKEMON_ID } from "../Constants";
 
 const initialState = {
   pokemon: [],
+  onePokemon: [],
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         pokemon: action.payload,
+      };
+    case GET_POKEMON_ID:
+      return {
+        ...state,
+        onePokemon: action.payload.data,
       };
 
     default:
