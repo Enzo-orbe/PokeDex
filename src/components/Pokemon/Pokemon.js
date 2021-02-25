@@ -14,7 +14,7 @@ export default function Pokemon() {
     dispatch(getPokemonId(id));
   }, []);
 
-  const array = data && data.moves.splice(0, 5);
+  const array = data.moves && data.moves.splice(0, 5);
 
   return (
     <div className="container">
@@ -23,18 +23,26 @@ export default function Pokemon() {
       </div>
       <div className="container__text">
         <div className="tittle">
-          <h1>{data && data.name.toUpperCase()}</h1>
+          <h1>{data && data.name && data.name.toUpperCase()}</h1>
         </div>
         <div className="data">
           <p>Peso: {data && data.weight}</p>
-          <p>Tipo: {data.types && data.types[0].type.name}</p>
           <p>Altura: {data && data.height}</p>
           <p>Numero Pokedex: {data && data.order}</p>
+          <p>Tipos:</p>
+          <ul>
+            {data.types &&
+              data.types.map((t) => (
+                <li key={t.type.name}>- {t.type.name}.</li>
+              ))}
+          </ul>
+
           <p>Movimientos:</p>
           <ul>
-            {array.map((poke) => (
-              <li key={poke.move.name}>{poke.move.name}</li>
-            ))}
+            {array &&
+              array.map((poke) => (
+                <li key={poke.move.name}>- {poke.move.name}</li>
+              ))}
           </ul>
         </div>
       </div>
