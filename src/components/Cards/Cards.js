@@ -26,9 +26,12 @@ export default function Cards() {
                   <p>Tipo: {result.data.types[0].type.name}</p>
                 </div>
                 <div className="card__button">
-                  <button>
-                    <Link to={`/pokemon/${result.data.id}`}>Ver Mas</Link>
-                  </button>
+                  <Link
+                    style={{ width: "100%" }}
+                    to={`/pokemon/${result.data.id}`}
+                  >
+                    <button>Ver Mas</button>
+                  </Link>
                 </div>
               </div>
             </div>

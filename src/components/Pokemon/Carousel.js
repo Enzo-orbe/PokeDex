@@ -13,22 +13,22 @@ const CarouselImage = ({ images }) => {
 
   const items = [
     {
-      src: images && images.back_default,
-      altText: "Pokemon",
-      caption: "Pokemon",
-    },
-    {
-      src: images && images.back_shiny,
-      altText: "Pokemon",
-      caption: "Pokemon",
-    },
-    {
       src: images && images.front_default,
       altText: "Pokemon",
       caption: "Pokemon",
     },
     {
+      src: images && images.back_default,
+      altText: "Pokemon",
+      caption: "Pokemon",
+    },
+    {
       src: images && images.front_shiny,
+      altText: "Pokemon",
+      caption: "Pokemon",
+    },
+    {
+      src: images && images.back_shiny,
       altText: "Pokemon",
       caption: "Pokemon",
     },
