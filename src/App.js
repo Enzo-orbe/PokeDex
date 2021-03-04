@@ -5,6 +5,7 @@ import { getAllPokemons } from "./store/Actions/PokemonActions";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Pokemon from "./components/Pokemon/Pokemon";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Route exact path="/" component={SearchBar} />
       <Route exact path="/" component={Cards} />
       <Route exact path="/pokemon/:id" component={Pokemon} />
     </Router>

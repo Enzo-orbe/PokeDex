@@ -1,0 +1,21 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  margin-top: 15px;
+  width: 200px;
+
+  &__input {
+    display: flex;
+    margin-right: 8px;
+
+    input {
+      width: 150px;
+      border-radius: 10px;
+      &:focus {
+        border: none;
+      }
+    }
+  }
+}
